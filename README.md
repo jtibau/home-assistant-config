@@ -1,2 +1,3 @@
-# home-assistant-config
-My Home Assistant Configuration
+# Home Assistant Config
+
+TBD
