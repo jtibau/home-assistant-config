@@ -1,0 +1,43 @@
+# Perimeter Alerts
+---
+garage_door_open_alert:
+  name: Garage Door Open
+  done_message: Garage Door Closed
+  entity_id: binary_sensor.garage_door_sensor_mimolite_107
+  state: 'on'
+  repeat:
+    - 5
+    - 10
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios_eduardo
+    - pushover
+
+front_door_open_alert:
+  name: Front Door Open
+  done_message: Front Door Closed
+  entity_id: binary_sensor.front_door
+  state: 'on'
+  repeat:
+    - 2
+    - 5
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios_eduardo
+    - pushover
+
+patio_door_open_alert:
+  name: Patio Door/Kitchen Window Open
+  entity_id: binary_sensor.kitchenfamily_room_windows
+  state: 'on'
+  repeat:
+    - 10
+    - 30
+  can_acknowledge: true
+  skip_first: true
+  notifiers:
+    - ios_eduardo
+    - pushover
+...
