@@ -1,0 +1,26 @@
+---
+play_sleep_playlist_home:
+  alias: Sleep Music
+  sequence:
+    - service: remote.send_command
+      data:
+        device: 28509765
+        command:
+          - PowerOn
+          - InputCd
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.spotify
+        source: House
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.spotify
+        media_content_id: 'spotify:user:1241646018:playlist:0nTMef7Lwqv0rZzKj0MHfk'
+        media_content_type: 'playlist'
+    - delay: 00:30
+    - service: remote.send_command
+      data:
+        device: 28509765
+        command:
+          - PowerOff
+...

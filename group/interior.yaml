@@ -1,0 +1,39 @@
+---
+master_bedroom_view:
+  name: Master Bedroom
+  view: yes
+  entities:
+    - input_number.slider_master
+    - light.master_entrance_ligh_62
+    - light.master_bedroom
+    - group.master_bedroom_switches
+    - sensor.master_bedroom_temperature
+    - binary_sensor.master_bedroom_occupancy
+    - binary_sensor.master_bedroom_15
+    - binary_sensor.master_bathroom_16
+    - binary_sensor.master_motion_55
+
+living_area_lights:
+  name: Living Area Lights
+  entities:
+    - light.hall_light_32
+    - light.kitchen_light_131
+    - light.living_room_light_129
+    - light.family_room
+    - light.dining_room_light_130
+    - switch.kettle
+
+bedrooms_lights:
+  name: Bedroom Lights
+  entities:
+    - light.guest_bedroom
+    - light.master_bedroom
+    - light.living_room_window_l_36
+    - switch.master_bedroom__bed_lights
+
+master_bedroom_switches:
+  name: Master Bedroom Switches
+  entities:
+    - switch.master_bedroom__bed_lights
+    - light.living_room_window_l_36
+...

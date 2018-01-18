@@ -1,0 +1,8 @@
+---
+media_view:
+  name: Media
+  view: yes
+  entities:
+    - remote.home
+    - media_player.spotify
+...

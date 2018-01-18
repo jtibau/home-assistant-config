@@ -1,0 +1,21 @@
+---
+- id: a_fan_on_at_930pm
+  alias: Turn fan on at 9:30PM
+  trigger:
+    - platform: time
+      at: '21:30:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_window_l_36
+
+- id: a_fan_off_at_730am
+  alias: Turn fan on at 7:30AM
+  trigger:
+    - platform: time
+      at: '7:30:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.living_room_window_l_36
+...

@@ -1,0 +1,25 @@
+---
+- id: a_garage_light_on_interior_door
+  alias: Turn on Garage Light By Opening Laundry Door
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.laundry_room_door
+    to: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.garage_73
+
+- id: a_garage_light_off_interior_door_closed_2min
+  alias: Turn off Garage Light after Closing Laundry Door for 2 minutes
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.laundry_room_door
+      to: 'off'
+      for:
+        minutes: 2
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.garage_73
+...

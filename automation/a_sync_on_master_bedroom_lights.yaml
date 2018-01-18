@@ -1,0 +1,15 @@
+---
+# - id: a_sync_on_master_bedroom_lights
+#   alias: Master Bedroom Entrace Sync On
+#   trigger:
+#   - platform: state
+#     entity_id: light.master_entrance_ligh_62
+#     from: 'off'
+#     to: 'on'
+#   condition: []
+#   action:
+#   - service: light.hue_activate_scene
+#     data:
+#       group_name: "Master Bedroom"
+#       scene_name: "Bright"
+...

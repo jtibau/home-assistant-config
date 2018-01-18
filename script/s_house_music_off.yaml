@@ -1,0 +1,10 @@
+---
+house_music_off:
+  alias: House Music Off
+  sequence:
+    - service: remote.send_command
+      data:
+        device: 28509765
+        command:
+          - PowerOff
+...

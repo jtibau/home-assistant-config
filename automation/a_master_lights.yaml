@@ -1,0 +1,98 @@
+# Automations related to Master Slider
+# See slider_master in config/misc/input_number.yaml
+---
+- id: a_master_slider_step_0
+  alias: Master Slider Step 0
+  trigger:
+  - platform: numeric_state
+    entity_id: input_number.slider_master
+    above: -1
+    below: 1
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.master_bedroom
+  - service: light.turn_off
+    data:
+      entity_id: light.master_entrance_ligh_62
+
+- id: a_master_slider_step_20
+  alias: Master Slider Step 20
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.slider_master
+      above: 19
+      below: 21
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Nightlight"
+    - service: light.turn_off
+      data:
+        entity_id: light.master_entrance_ligh_62
+
+- id: a_master_slider_step_40
+  alias: Master Slider Step 40
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.slider_master
+      above: 39
+      below: 41
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Relax"
+    - service: light.turn_off
+      data:
+        entity_id: light.master_entrance_ligh_62
+
+- id: a_master_slider_step_60
+  alias: Master Slider Step 60
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.slider_master
+      above: 59
+      below: 61
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Read"
+    - service: light.turn_off
+      data:
+        entity_id: light.master_entrance_ligh_62
+
+- id: a_master_slider_step_80
+  alias: Master Slider Step 80
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.slider_master
+      above: 79
+      below: 81
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Match"
+    - service: light.turn_off
+      data:
+        entity_id: light.master_entrance_ligh_62
+
+- id: a_master_slider_step_100
+  alias: Master Slider Step 100
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.slider_master
+      above: 99
+      below: 101
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Master Bedroom"
+        scene_name: "Match"
+    - service: light.turn_on
+      data:
+        entity_id: light.master_entrance_ligh_62
+...

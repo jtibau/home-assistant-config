@@ -1,0 +1,14 @@
+---
+# - id: a_sync_off_master_bedroom_lights
+#   alias: Master Bedroom Entrace Sync Off
+#   trigger:
+#   - platform: state
+#     entity_id: light.master_entrance_ligh_62
+#     from: 'on'
+#     to: 'off'
+#   condition: []
+#   action:
+#   - service: light.turn_off
+#     data:
+#       entity_id: group.master_bedroom_lights
+...

@@ -1,0 +1,29 @@
+---
+- id: a_patio_light_on_sliding_door
+  alias: Turn on Patio Light by opening Sliding Door
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchenfamily_room_windows
+    to: 'on'
+  condition:
+    condition: sun
+    after: sunset
+    after_offset: "00:30:00"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.patio_59
+
+- id: a_patio_light_off_sliding_door_closed_1min
+  alias: Turn off Patio Light after closing Sliding Door for 1 minute
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchenfamily_room_windows
+      to: 'off'
+      for:
+        minutes: 1
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.patio_59
+...

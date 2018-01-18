@@ -1,0 +1,89 @@
+---
+light.outlet_36:
+  friendly_name: Living Room Window Lights
+switch.mailbox_48:
+  hidden: true
+light.patio_59:
+  friendly_name: Patio Lights
+light.porch_44:
+  friendly_name: Porch Light
+switch.porch_motion_45:
+  hidden: true
+light.driveway_43:
+  friendly_name: Driveway Light
+switch.family_motion_51:
+  hidden: true
+binary_sensor.family_motion_51:
+  friendly_name: Family Motion Sensor
+switch.front_door_6:
+  hidden: true
+switch.garage_door_relay_70:
+  hidden: true
+  alexa_hidden: 'true'
+climate.home: {}
+weather.home: {}
+remote.home:
+  friendly_name: Harmony Remote
+switch.garage_door_sensor_mimolite_107:
+  hidden: true
+  alexa_hidden: 'true'
+switch.hall_motion_46:
+  hidden: true
+switch.kitchenfamily_14:
+  hidden: true
+switch.laundry_door_12:
+  hidden: true
+switch.living_motion_18:
+  hidden: true
+switch.living_room_13:
+  hidden: true
+camera.living_room:
+  friendly_name: Living Room Nest Cam
+switch.master_bathroom_16:
+  hidden: true
+switch.master_bedroom_15:
+  hidden: true
+switch.master_motion_55:
+  hidden: true
+switch.officeguest_bedroomguest_bathroom_17:
+  hidden: true
+light.master_entrance_ligh_62:
+  friendly_name: Master Entrance Light
+switch.master_bedroom__bed_lights:
+  friendly_name: Master Bedroom - Bed Lights
+binary_sensor.master_bathroom_16:
+  friendly_name: Master Bathroom Window
+binary_sensor.master_bedroom_15:
+  friendly_name: Master Bedroom Window
+binary_sensor.master_motion_55:
+  friendly_name: Master Motion Sensor
+light.living_room_window_l_36:
+  friendly_name: Master Bedroom Fan
+binary_sensor.garage_door_sensor_mimolite_107:
+  friendly_name: Garage Door Sensor
+group.alarm_view:
+  alexa_hidden: 'true'
+  hidden: true
+light.vanessas_lamp:
+  alexa_hidden: 'true'
+light.master_light:
+  alexa_hidden: 'true'
+light.master_bedroom:
+  alexa_hidden: 'true'
+group.master_bedroom_view:
+  alexa_hidden: 'true'
+light.guest_lamp_left:
+  alexa_hidden: 'true'
+light.guest_lamp_right:
+  alexa_hidden: 'true'
+light.guest_light:
+  alexa_hidden: 'true'
+light.edus_lamp:
+  alexa_hidden: 'true'
+light.family_room:
+  alexa_hidden: 'true'
+light.family_room_lamp:
+  alexa_hidden: 'true'
+media_player.spotify:
+  alexa_hidden: 'true'
+...

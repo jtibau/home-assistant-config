@@ -1,0 +1,30 @@
+---
+garage_view:
+  name: Garage
+  view: yes
+  entities:
+    - lock.garage_door_72
+    - lock.laundry_door_lock_65
+    - light.garage_73
+    - automation.turn_on_garage_light_by_opening_laundry_door
+    - automation.turn_off_garage_light_after_closing_laundry_door_for_2_minutes
+
+exterior_view:
+  name: Exterior
+  view: yes
+  entities:
+    - group.exterior_lights
+    - lock.front_door_lock_64
+    - binary_sensor.porch_motion
+    - automation.turn_on_patio_light_by_opening_sliding_door
+    - automation.turn_off_patio_light_after_closing_sliding_door_for_1_minute
+
+exterior_lights:
+  name: Exterior Lights
+  entities:
+    - light.string_lights_105
+    - light.patio_59
+    - light.porch_light_44
+    - light.driveway_light_43
+    - light.garage_73
+...

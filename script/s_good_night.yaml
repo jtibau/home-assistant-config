@@ -1,0 +1,26 @@
+---
+good_night:
+  alias: Good Night
+  sequence:
+    - data:
+        entity_id: group.interior_lights
+      service: light.turn_off
+    - data:
+        entity_id: switch.master_bedroom__bed_lights
+      service: switch.turn_off
+    - data:
+        entity_id: light.string_lights_105
+      service: light.turn_off
+    - data:
+        entity_id: light.patio_59
+      service: light.turn_off
+    - data:
+        entity_id: light.porch_light_44
+      service: light.turn_off
+    - data:
+        entity_id: light.garage_73
+      service: light.turn_off
+    - data:
+        entity_id: group.locks
+      service: lock.lock
+...

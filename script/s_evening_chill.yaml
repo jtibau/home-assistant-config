@@ -1,0 +1,20 @@
+---
+play_evening_chill_playlist_home:
+  alias: Evening Chill Music
+  sequence:
+    - service: remote.send_command
+      data:
+        device: 28509765
+        command:
+          - PowerOn
+          - InputCd
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.spotify
+        source: House
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.spotify
+        media_content_id: 'spotify:user:spotify:playlist:37i9dQZF1DWZ0OzPeadl0h'
+        media_content_type: 'playlist'
+...

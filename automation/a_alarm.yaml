@@ -1,0 +1,92 @@
+# Alarm related automations
+---
+- id: a_alarm_stay_at_8pm
+  alias: Set Arm Stay at 8PM
+  trigger:
+  - platform: time
+    at: '20:00:00'
+  action:
+  - service: alarm_control_panel.alarm_arm_home
+    data:
+      entity_id: alarm_control_panel.home_alarm
+
+- id: a_alarm_stay_at_10_30pm
+  alias: Set Arm Stay at 10:30PM
+  trigger:
+    - platform: time
+      at: '22:30:00'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        entity_id: alarm_control_panel.home_alarm
+
+- id: a_alarm_entry_delay_at_night
+  alias: Turn lights on when entry delay at night
+  trigger:
+    - platform: state
+      entity_id: sensor.home_alarm_keypad
+      to: 'Entry Delay in Progress'
+  condition:
+    condition: sun
+    after: sunset
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_light_32
+    - delay: 5:00
+    - service: light.turn_off
+      data:
+        entity_id: light.hall_light_32
+
+- id: a_alarm_armed_away
+  alias: Alarm Armed Away
+  trigger:
+    - platform: state
+      entity_id: sensor.home_alarm_keypad
+      to: 'Arm Away'
+  action:
+    - service: lock.lock
+      data:
+        entity_id: lock.front_door_lock_64
+    - service: lock.lock
+      data:
+        entity_id: lock.laundry_door_lock_65
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.home
+        away_mode: true
+    - service: remote.turn_off
+      data:
+        entity_id: remote.home
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.living_area_lights
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.bedrooms_lights
+
+- id: a_alarm_disarmed
+  alias: Alarm Disarmed
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'disarmed'
+  action:
+    - service: climate.ecobee_resume_program
+      data:
+        entity_id: climate.home
+        resume_all: true
+
+- id: a_lock_front_door_after_2min
+  alias: Lock Front Door after closed for 2 minutes
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door
+      to: 'off'
+      for:
+        minutes: 2
+  action:
+    - service: lock.lock
+      data:
+        entity_id: lock.front_door_lock_64
+...

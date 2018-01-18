@@ -1,0 +1,11 @@
+*.key
+*.conf
+*.db-shm
+*.db-wal
+home-assistant.log
+home-assistant_v2.db
+lib
+deps
+tts
+secrets.yaml
+known_devices.yaml

@@ -1,0 +1,10 @@
+---
+# This is to be used as a UI control that cycles the through different light
+# settings in the Master Bedroom
+slider_master:
+  name: Master Slider
+  initial: 0
+  min: 0
+  max: 100
+  step: 20
+...

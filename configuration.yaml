@@ -1,0 +1,168 @@
+---
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick from: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: !secret home_time_zone
+  # Customization file
+  customize: !include customize.yaml
+
+alert: !include_dir_merge_named alert/
+automation: !include_dir_merge_list automation/
+group: !include_dir_merge_named group/
+input_number: !include misc/input_number.yaml
+script: !include_dir_merge_named script/
+
+# Enables HA Cloud
+cloud:
+  alexa:
+    filter:
+      exclude_domains:
+        - automation
+        - group
+        - scene
+
+# Enables configuration UI
+config:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Discover some devices automatically
+discovery:
+
+# Ecobee Thermostat
+ecobee:
+  api_key: !secret ecobee_api_key
+
+# Alarm Panel (Envisalink)
+envisalink:
+  host: !secret envisalink_host
+  panel_type: DSC
+  user_name: !secret envisalink_username
+  password: !secret envisalink_password
+  code: !secret envisalink_code
+  port: !secret envisalink_port
+  evl_version: 3
+  keepalive_interval: 60
+  zonedump_interval: 30
+  panic_type: Police
+  zones:
+    1:
+      name: 'Living Room Motion'
+      type: 'motion'
+    2:
+      name: 'Front Door'
+      type: 'opening'
+    3:
+      name: 'Laundry Room Door'
+      type: 'opening'
+    4:
+      name: 'Bell Tamper'
+      type: 'opening'
+    5:
+      name: 'Living Room Window'
+      type: 'opening'
+    6:
+      name: 'Kitchen/Family Room Windows'
+      type: 'opening'
+    9:
+      name: 'Master Bedroom Window'
+      type: 'opening'
+    10:
+      name: 'Master Bathroom Window'
+      type: 'opening'
+    11:
+      name: 'Office/Guest/Guest Bath'
+      type: 'opening'
+    12:
+      name: 'Porch Motion'
+      type: 'motion'
+    13:
+      name: 'Hall Motion'
+      type: 'motion'
+    17:
+      name: 'Family Room Motion'
+      type: 'motion'
+    18:
+      name: 'Master Bedroom Motion'
+      type: 'motion'
+  partitions:
+    1:
+      name: 'Home Alarm'
+    2:
+      name: 'Outside Alarm'
+
+# Enables the frontend
+frontend:
+
+# Enables support for tracking state changes over time
+history:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_api_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: !secret http_base_url
+  ssl_certificate: !secret http_ssl_certificate
+  ssl_key: !secret http_ssl_key
+
+ios:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Spotify
+media_player:
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+
+# Nest for Dropcam
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+# PushOver Notifications
+notify:
+  - name: pushover
+    platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_user_key
+
+# Weather prediction
+sensor:
+  - platform: yr
+
+# Track the sun
+sun:
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+# Optional, allows Home Assistant developers to focus on popular components.
+# include_used_components: true
+
+# Vera Home Controller
+vera:
+  vera_controller_url: !secret vera_controller_url
+  # Optional to exclude devices - this is a list of vera device ids
+  exclude: [24, 121, 112, 115, 122, 84, 87, 85, 82, 108, 109, 111, 114, 120,
+            116, 118, 21, 23, 22, 42, 39, 51, 6, 46, 14, 12, 18, 13, 48, 16,
+            15, 55, 17, 45]
+  # Optional to import switches as lights - this is a list of vera device ids
+  lights: [36, 43, 73, 32, 62, 59, 44, 105]
+...
