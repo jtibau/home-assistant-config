@@ -18,4 +18,37 @@
     - service: light.turn_off
       data:
         entity_id: light.living_room_window_l_36
+
+- id: a_exterior_lights_on_at_sunset
+  alias: Turn on driveway and porch light at sunset
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.driveway_light_43
+    - service: light.turn_on
+      data:
+        entity_id: light.porch_light_44
+
+- id: a_porch_light_off_around_22_30
+  alias: Turn off porch light around 22:30
+  trigger:
+    platform: time
+    at: '22:30:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.porch_light_44
+
+- id: a_driveway_light_off_at_sunrise
+  alias: Turn off driveway light at sunrise
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.driveway_light_43
 ...

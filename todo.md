@@ -1,4 +1,3 @@
 # TODO
 
-- Alerts for door locks
-- Alerts for alarm
+- Garage light triggered by garage door opening
