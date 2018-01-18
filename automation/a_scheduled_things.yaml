@@ -10,7 +10,7 @@
         entity_id: light.living_room_window_l_36
 
 - id: a_fan_off_at_730am
-  alias: Turn fan on at 7:30AM
+  alias: Turn fan off at 7:30AM
   trigger:
     - platform: time
       at: '7:30:00'

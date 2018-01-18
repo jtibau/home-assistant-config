@@ -16,6 +16,17 @@
       data:
         entity_id: alarm_control_panel.home_alarm
 
+- id: a_alarm_entry_delay
+  alias: Alarm Entry Delay
+  trigger:
+    - platform: state
+      entity_id: sensor.home_alarm_keypad
+      to: 'Entry Delay in Progress'
+  action:
+    - service: notify.ios_eduardo
+      data:
+        message: "Entry Delay"
+
 - id: a_alarm_entry_delay_at_night
   alias: Turn lights on when entry delay at night
   trigger:
@@ -38,8 +49,8 @@
   alias: Alarm Armed Away
   trigger:
     - platform: state
-      entity_id: sensor.home_alarm_keypad
-      to: 'Arm Away'
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_away'
   action:
     - service: lock.lock
       data:
@@ -60,6 +71,20 @@
     - service: homeassistant.turn_off
       data:
         entity_id: group.bedrooms_lights
+    - service: notify.ios_eduardo
+      data:
+        message: "Armed Away"
+
+- id: a_alarm_armed_stay
+  alias: Alarm Armed Stay
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'armed_home'
+  action:
+    - service: notify.ios_eduardo
+      data:
+        message: "Armed Stay"
 
 - id: a_alarm_disarmed
   alias: Alarm Disarmed
@@ -72,15 +97,22 @@
       data:
         entity_id: climate.home
         resume_all: true
+    - service: notify.ios_eduardo
+      data:
+        message: "Disarmed"
 
 - id: a_lock_front_door_after_2min
   alias: Lock Front Door after closed for 2 minutes
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door
-      to: 'off'
+      entity_id: lock.front_door_lock_64
+      to: 'unlocked'
       for:
         minutes: 2
+  condition:
+    condition: state
+    entity_id: binary_sensor.front_door
+    state: 'off'
   action:
     - service: lock.lock
       data:
