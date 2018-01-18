@@ -1,20 +1,16 @@
 # Alarm related automations
 ---
-- id: a_alarm_stay_at_8pm
-  alias: Set Arm Stay at 8PM
-  trigger:
-  - platform: time
-    at: '20:00:00'
-  action:
-  - service: alarm_control_panel.alarm_arm_home
-    data:
-      entity_id: alarm_control_panel.home_alarm
-
-- id: a_alarm_stay_at_10_30pm
-  alias: Set Arm Stay at 10:30PM
+- id: a_alarm_stay_at_night
+  alias: Set Arm Stay at night
   trigger:
     - platform: time
-      at: '22:30:00'
+      at: '20:00:00'
+    - platform: time
+      at: '21:00:00'
+    - platform: time
+      at: '22:00:00'
+    - platform: time
+      at: '23:00:00'
   action:
     - service: alarm_control_panel.alarm_arm_home
       data:
