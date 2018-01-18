@@ -28,6 +28,18 @@ front_door_open_alert:
     - ios_eduardo
     - pushover
 
+front_door_lock_alert:
+  name: Front Door Unlocked
+  done_message: Front Door Locked
+  entity_id: lock.front_door_lock_64
+  state: 'unlocked'
+  repeat:
+    - 5
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios_eduardo
+
 patio_door_open_alert:
   name: Patio Door/Kitchen Window Open
   entity_id: binary_sensor.kitchenfamily_room_windows
